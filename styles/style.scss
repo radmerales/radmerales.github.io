@@ -5,6 +5,10 @@ $dark-bg: #000000;
 $light-bg-2: #fafafa;
 $faded-black: #3f3f3f;
 
+h3{
+    color:$primary;
+}
+
 @font-face {
     font-family: Inter;
     src: url(../fonts/Inter-VariableFont_slnt,wght.ttf);

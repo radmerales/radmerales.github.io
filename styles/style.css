@@ -2,22 +2,18 @@
   font-family: Inter;
   src: url(../fonts/Inter-VariableFont_slnt,wght.ttf);
 }
-
 @font-face {
   font-family: Roboto;
   src: url(../fonts/Roboto-Regular.ttf);
 }
-
 @font-face {
   font-family: Montserrat;
   src: url(../fonts/Montserrat-VariableFont_wght.ttf);
 }
-
 @font-face {
   font-family: OpenSans;
   src: url(../fonts/OpenSans.ttf);
 }
-
 @media (max-width: 1200px) {
   #title-card {
     padding: 0px !important;
@@ -27,32 +23,27 @@
     padding: 0px;
   }
 }
-
 body {
   padding: 0;
   font-family: Inter;
 }
 
-.button-dark, .navbar button, #call-to-action button {
+.button-dark, #call-to-action button, .navbar button {
   color: white !important;
   background-color: #FF0F5B;
   border: solid 1px #FF0F5B !important;
 }
-
-.button-dark:hover, .navbar button:hover, #call-to-action button:hover {
+.button-dark:hover, #call-to-action button:hover, .navbar button:hover {
   color: white !important;
   background-color: #FF0F5B !important;
   border: solid 1px #FF0F5B !important;
-  -webkit-box-shadow: #fc91b3 0px 0px 0px 5px !important;
-          box-shadow: #fc91b3 0px 0px 0px 5px !important;
+  box-shadow: #fc91b3 0px 0px 0px 5px !important;
 }
-
-.button-dark:focus, .navbar button:focus, #call-to-action button:focus {
+.button-dark:focus, #call-to-action button:focus, .navbar button:focus {
   color: white !important;
   background-color: #FF0F5B !important;
   border: solid 1px #FF0F5B !important;
-  -webkit-box-shadow: #fc91b3 0px 0px 0px 5px !important;
-          box-shadow: #fc91b3 0px 0px 0px 5px !important;
+  box-shadow: #fc91b3 0px 0px 0px 5px !important;
 }
 
 .button-light, #call-to-action .fade-button {
@@ -60,27 +51,22 @@ body {
   background-color: white;
   border: solid 1px #FF0F5B !important;
 }
-
 .button-light:hover, #call-to-action .fade-button:hover {
   color: white !important;
   background-color: #FF0F5B !important;
   border: solid 1px #FF0F5B !important;
-  -webkit-box-shadow: #fc91b3 0px 0px 0px 5px !important;
-          box-shadow: #fc91b3 0px 0px 0px 5px !important;
+  box-shadow: #fc91b3 0px 0px 0px 5px !important;
 }
-
 .button-light:focus, #call-to-action .fade-button:focus {
   color: white !important;
   background-color: #FF0F5B !important;
   border: solid 1px #FF0F5B !important;
-  -webkit-box-shadow: #fc91b3 0px 0px 0px 5px !important;
-          box-shadow: #fc91b3 0px 0px 0px 5px !important;
+  box-shadow: #fc91b3 0px 0px 0px 5px !important;
 }
 
 .navbar {
   background-color: white !important;
 }
-
 .dropdown-item:active {
   background-color: #FF0F5B !important;
 }
@@ -93,7 +79,6 @@ body {
 .pseudolink {
   color: #FF0F5B;
 }
-
 .pseudolink:hover {
   cursor: pointer;
 }
@@ -102,22 +87,18 @@ body {
   background-color: white;
   color: black;
 }
-
 #index-intro #intro-space-text .col-md {
   text-align: justify;
 }
-
 #index-intro #intro-space-text .col-md h3 {
   text-align: left;
   font-weight: 600;
   font-size: 1.7em;
   color: #FF0F5B;
 }
-
 #index-intro #intro-space-text .col-md p {
   color: #3f3f3f;
 }
-
 #index-intro #title-card h1 {
   font-weight: bold;
   text-align: center;
@@ -125,25 +106,20 @@ body {
   padding-right: 2em;
   padding-left: 2em;
 }
-
 #index-intro #title-card h1 u {
-  -webkit-text-decoration-color: #FF0F5B;
-          text-decoration-color: #FF0F5B;
+  text-decoration-color: #FF0F5B;
 }
 
 #call-to-action {
   text-align: center;
 }
-
 #home-block-2 {
   background-color: #fafafa;
 }
-
 #home-block-2 #short-about .col-8 {
   margin: auto;
-  text-align: center  !important;
+  text-align: left !important;
 }
-
 #home-block-2 #short-about .col-8 p {
   font-size: 1.2em;
 }
@@ -156,26 +132,77 @@ footer {
   background-color: #000000;
   color: white;
 }
-
 footer a {
   color: white;
   text-decoration: underline;
 }
-
 footer a:hover {
   color: #FF0F5B;
 }
-
 footer #outLinks {
   text-align: center;
   font-size: 2em;
 }
-
 footer #outLinks a {
   text-decoration: none;
 }
-
 footer #outLinks a:hover {
   text-decoration: none;
 }
-/*# sourceMappingURL=style.css.map */
+
+.feature-icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.75rem;
+}
+
+.icon-square {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+}
+
+.text-shadow-1 {
+  text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
+}
+
+.text-shadow-2 {
+  text-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+}
+
+.text-shadow-3 {
+  text-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.25);
+}
+
+.card-cover {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.feature-icon-small {
+  width: 3rem;
+  height: 3rem;
+}
+
+.card {
+  transition: 0.3s;
+}
+.card div.d-flex h3 {
+  transition: 0.3s;
+  visibility: hidden;
+  color: transparent;
+  font-size: 1.5em;
+}
+
+.card:hover div.d-flex {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.card:hover div.d-flex h3 {
+  visibility: visible;
+  color: white;
+}
+
+.bi.me-2 {
+  filter: brightness(0) invert(1);
+}/*# sourceMappingURL=style.css.map */

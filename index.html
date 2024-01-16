@@ -6,51 +6,177 @@
 
 <script>
 
-var precommandText='<span style="color: #13ff95;">algopp</span>@visitor:~$ &nbsp';
+var precommandText='<span style="color: #13ff95; font-weight: bold;">algopp</span>@visitor:~$ &nbsp';
 
 function bootUp(){
     document.getElementById("precommandText").innerHTML = precommandText;
 }
 
-function tPrint(text, space = 0){
+function tPrint(text, space = 0, noBreak = 0){
     hist = document.getElementById('before');
     if(space===0){
+        if(noBreak){
+            hist.innerHTML += text;     
+            return;
+        }
         hist.innerHTML += text+"<br>";        
     }
     else{
+        if(noBreak){
+            hist.innerHTML += "&nbsp".repeat(space)+text;
+            return;
+        }
         hist.innerHTML += "&nbsp".repeat(space)+text+"<br>";
     }
 }
 
 function help(){
-    tPrint('Here is the list of commands you can run:');
-    commands = [' - about',' - help',' - clear',' - apply', ' - neofetch']
-
+    tPrint('')
+    tPrint('Here is the list of commands you can run:', 3);
+    commands = [' - about',' - help',' - clear',' - apply', ' - duck', ' - problemset']
+    tPrint('');
     commands.forEach((com)=>
-        tPrint(com,1)
+        tPrint(com,5)
     );
+    tPrint('');
+}
+
+let problems = [
+    {
+        filename: "Watermelon",
+        description: "Can you divide a watermelon in such a way that each of the two parts weighs even number of kilos, at the same time it is not obligatory that the parts are equal.",
+        difficulty: "Easy",
+        judge: "https://codeforces.com/problemset/problem/4/A"
+    },
+
+]
+
+function problemset(){
+    tPrint('');
+    tPrint('Here are the problems you can try out.', 2);
+    tPrint('');
+
+    problems.forEach((prob)=>
+        tPrint( '- ' + prob.filename,5)
+    );
+    
+    tPrint('');
+    tPrint('Type out "open [filename]" to open the file', 2);
+    tPrint('');
+}
+
+function openProblem(name){
+    problems.forEach((prob)=>{
+        tPrint('');
+        if(prob.filename==name){
+            for (var prop in prob) {
+                if (Object.prototype.hasOwnProperty.call(prob, prop)) {
+                    tPrint(prop+': '+prob[prop])
+                }
+            }
+        }
+        tPrint('');
+    });
+}
+
+function about(){
+    tPrint('');
+    tPrint('UP Algorithm Plus-plus or more commonly known as Algo++ is a university wide organization that provides a place for students who enjoy competitive programming. It aims to create an environment to foster teamwork and the spirit of learning', 3);
+    tPrint('');
+    tPrint('Competitive Programming is a mindsport.', 3);
+    tPrint('');
+}
+
+function duck(){
+    tPrint('<div id="ducky">')
+    duck=[
+    "                 wwwwwwwwwwwusssssss                             ",
+    "              wwwwwwsssssssssssssssss                            ",
+    "            wwwwsssssssssssssssssssssss                          ",
+    "           ssssssssssssssssssssssssssssss                        ",
+    "           ssssssssssssssssssssssssssssss                        ",
+    "           ssssssssssssssssssssssssssssss                        ",
+    "           jjjjjssssssssAAAAAssssssssssss                        ",
+    "           jjjjjssssssssAAAAAssssssssssss                      ww",
+    "           jjjjjssssssssAAAAAssssssssssss                    wwww",
+    "     jjjjjjjjjjjsssssssspppppssssssssssss                  vvwwss",
+    "     jjjjjjjjjjjsssssssssssssssssssssssss                wwwwuuss",
+    "     jjjjjjjjjjjsssssssssssssssssssssssss                wwwwssss",
+    "     jjjjjjjjjjjsssssssssssssssssssssssss               wwwssssss",
+    "           ssssssssssssssssssssssssssssssssssssswwwwwwwwwusssssss",
+    "            ttsssssssssssssssssssssssssssssssssssssssssssssssssss",
+    "              ttttsssssssssssssssssssssssssssssssssssssssssssssss",
+    "                  ttttttttsssssssssssssssssssssssssssssssssssssss",
+    "                sssssssssssssssssssssssssssssssssssssssssssssssss",
+    "              sssssssssssssssssssssssssssssssssssssssssssssssssss",
+    "              sssssssssssssssssssssssssssssssssssssssssssssssssss",
+    "              sssssssssssssssssssssssssssssssssssssssssssssssss  ",
+    "              sssssssssssssssssssssssssssssssssssssssssssssssss  ",
+    "              sssssssssssssssssssssssssssssssssssssssssssssss    ",
+    "              qqsssssssssssssssssssssssssssssssssssssssssssss    ",
+    "                qqsssssssssssssssssssssssssssssssssssssssss      ",
+    "                  ssssssssssssssssssssssssssssssssssssssss       ",
+    "                    ssssssssssssssssssssssssssssssssssss         "
+    ]
+
+    coloredDuck = [];
+    var row;
+    duck.forEach((x)=>{ 
+        row = "";
+        for (let i = 0; i < x.length; i++) {
+            letter = x[i];
+            if(letter=="A"){
+                row += "<span style='color: white;'>"+x[i]+"</span>";
+            }
+            else if(letter=="j"){
+                row += "<span style='color: #fc810f; '>"+x[i]+"</span>";
+            }
+            else{
+                row += x[i];
+            }
+        }
+        coloredDuck.push(row);
+    });
+
+    coloredDuck.forEach((x)=>{ 
+        tPrint('<pre>'+x+'</pre>',0,1)
+    });
+    
+    tPrint('</div>')
 }
 
 function command(cmd){
     switch (cmd) {
-        case "neofetch":
-            break;
+        case "duck":
+            duck();
+            return;
         case "about":
-            tPrint('UP Algorithm Plus-plus or more commonly known as Algo++ is a university wide organization that provides a place for students enjoying competitive programming. ')
-            break;
+            about();
+            return;
         case "help":
             help()
-            break;
+            return;
         case "clear":
             document.getElementById('before').innerHTML = "";
-            break;
+            return;
         case "apply":
             tPrint('Check out our facebook page!')
-            break;
-        default:
-            tPrint('command '+cmd+' not found.')
-            break;
+            return;
+        case "problemset":
+            problemset();            
+            return;
     }
+
+    if(cmd.split(" ")[0]=="open"){
+        if(cmd.split(" ").length>1 && cmd.split(" ").length<3){
+            if(cmd.split(" ")[1].length>0){
+                openProblem(cmd.split(" ")[1]);
+                return;
+            }
+        }
+    }
+
+    tPrint('command '+cmd+' not found.')
 }
 
 function detectEnter(e) {

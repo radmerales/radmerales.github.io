@@ -1,0 +1,159 @@
+<html>
+
+    <head>
+        <title>will u??</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+        <style>
+            #gif{
+                transition: ease-out 0.3s ;
+            }
+
+            table{
+                margin: auto;
+                width: 20em;
+            }
+
+            table td{
+                border: 1px solid black;
+                text-align: center;
+                height: 2em;
+            }
+
+            #hide{
+                display: none;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <iframe src="https://giphy.com/embed/td02jbtsXIxpBv45rJ" id="gif" width="480" height="480" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+        <h1 id="main-text">
+            will u be my valentine?? :))
+        </h1>
+
+        
+        <button type="button" class="btn btn-success" id="btn-yes" onclick="yes()">
+            yes ;)
+
+        </button>
+        
+        <button type="button" class="btn btn-danger" id="btn-no" onclick="no()">
+            no >:(
+        </button>
+
+        <div id = 'hide'>
+            <h1>
+                plan for feb 14
+            </h1>
+            <table id="schedule">
+                <tr>
+                    <th>time</th>
+                    <th>activity</th>
+                </tr>
+                <tr>
+                    <td>6:00 - 9:00</td>
+                    <td>travel to dasma</td>
+                </tr>
+                <tr>
+                    <td>9:00 - 10:00</td>
+                    <td>eat/take-out yellowcab</td>
+                </tr>
+                <tr>
+                    <td>10:00 - 10:30</td>
+                    <td>star gazing/outside tambay</td>
+                </tr>
+                <tr>
+                    <td>10:30 - 12:00</td>
+                    <td>dance sa dorm to this <a href="https://music.youtube.com/browse/VLPLaoein93Kv0soCFMT5Ed9TtmWXvzcmlH9">playlist</a></td>
+                </tr>
+            </table>
+        </div>
+
+        <script>
+            var no_ctr = 0;
+            
+            function conf(){
+                const defaults = {
+                    spread: 360,
+                    ticks: 100,
+                    gravity: 0,
+                    decay: 0.94,
+                    startVelocity: 30,
+                    shapes: ["heart"],
+                    colors: ["FFC0CB", "FF69B4", "FF1493", "C71585"],
+                    };
+
+                    confetti({
+                    ...defaults,
+                    particleCount: 100,
+                    scalar: 2,
+                    });
+
+                    confetti({
+                    ...defaults,
+                    particleCount: 100,
+                    scalar: 3,
+                    origin: { y: 1.2 },
+                    });
+
+                    confetti({
+                    ...defaults,
+                    particleCount: 100,
+                    scalar: 4,
+                    });
+                }
+
+            function yes(){
+                conf();
+                var gif = document.getElementById('gif');
+                gif.height = "0px";
+
+                var text = document.getElementById('main-text');
+                text.innerHTML = "yeyyy!! I love youu!!";
+
+                var yes = document.getElementById('btn-yes');
+                var no = document.getElementById('btn-no');
+                yes.style.display = "none";
+                no.style.display = "none";
+
+                document.getElementById("hide").style.display = "block";
+            }
+
+            function no(){
+                var yes = document.getElementById('btn-yes')
+                
+                yes.style.width = yes.offsetWidth * 1.5 + "px";
+                yes.style.height = yes.offsetHeight * 1.5 + "px";
+
+                var text = document.getElementById('main-text');
+                var gif = document.getElementById('gif');
+                if(no_ctr==0){
+                    text.innerHTML = "U WILL BE MY VALENTINE >:((";
+                    gif.src = "https://giphy.com/embed/2ObMRv4QwO5XO";
+                }
+                else if(no_ctr==1){
+                    text.innerHTML = "sino kabit mo?? :((";
+                    gif.src = "https://giphy.com/embed/U3DK5KWnjMKNq";
+                }
+                else if(no_ctr==2){
+                    text.innerHTML = "wala kang choice mwahahaha";
+                    var no = document.getElementById('btn-no');
+                    no.style.display = "none";
+                    gif.src = "https://giphy.com/embed/tDJfaLVF0gHV90lxZj";
+                }
+                no_ctr++;
+
+                // there will be three cycles
+                // 1st no, increase yes button and change text+gif
+                // 2nd no, sino kabit mo :<<
+                // 3rd no, remove the no button
+            }
+        </script>
+        
+    </body>
+
+</html>

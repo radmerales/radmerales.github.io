@@ -1,163 +1,209 @@
-<html>
+<!doctype html>
+<html lang="en">
+<head>
 
-    <head>
-        <title>will u??</title>
-        <link rel="stylesheet" href="styles.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
-        <style>
-            body{
-                text-align: center;
-            }
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-            #gif{
-                transition: ease-out 0.3s ;
-            }
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <title>Rad Merales Portfolio</title>
 
-            table{
-                margin: auto;
-                width: 20em;
-            }
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row flex-md-nowrap">
+            <!-- Sidebar -->
+            <div class="sidebar col-12 col-md-3 order-0 px-3 border-end">
+                <div class = "container-fluid px-0">
+                    <div class="d-flex px-0 py-0">
+                        <div class="order-0 align-items-center" style="padding-right: 0.5em;">
+                            <img src="Picture.jpg" alt="Gerarld Merales" class="profile-img mb-3" >
+                        </div>
+                        <div class="flex-grow order-1 ml-1">
+                            <h5 class="fw-bold">Rad Merales</h5>
+                            <p class="text-muted mb-1">BS Computer Engineering Student at UPD</p>
+                            <p class="text-muted small">Based in Quezon City</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Social links -->
+                <div class="d-flex gap-2 mb-3">
+                    <a href="https://www.linkedin.com/in/rad-merales/" class="text-dark"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://github.com/radmerales/" class="text-dark"><i class="bi bi-github"></i></a>
+                    <a href="mailto:gpmerales@gmail.com" class="text-dark"><i class="bi bi-envelope-arrow-up"></i></a>
+                </div>
 
-            table td{
-                border: 1px solid black;
-                text-align: center;
-                height: 2em;
-            }
+                <!-- About -->
+                <h6 class="fw-bold mt-4">About</h6>
+                <p class="small">
+                    I am passionate about systems programming and networks, with a strong interest in embedded systems. Currently exploring opportunities in machine learning to bridge low-level hardware and high-level intelligent systems.
+                </p>
 
-            #hide{
-                display: none;
-            }
-        </style>
-    </head>
+                <!-- Skills -->
+                <h6 class="fw-bold mt-3">Skills</h6>
+                <div class="skills d-flex flex-wrap">
+                    <script>
 
-    <body>
+                    var skills = [];
+                    const skillState = new Map();
 
-        <iframe src="https://giphy.com/embed/td02jbtsXIxpBv45rJ" id="gif" width="480" height="480" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                    fetch(`projects.json?v=${Date.now()}`)
+                        .then(res => res.json())
+                        .then(projects => {
+                            projects.forEach(project => {
+                                project.tags.forEach(tag => {
+                                    if (!skills.includes(tag)) {
+                                        skills.push(tag);
+                                    }
+                                });
+                                console.log(project.title);
+                            });
+                            skills.forEach(skill => {
+                                skillState.set(skill, true);
 
-        <h1 id="main-text">
-            will u be my valentine?? :))
-        </h1>
+                                const span = document.createElement('span');
+                                span.className = 'tag active';
+                                span.textContent = skill;
 
-        
-        <button type="button" class="btn btn-success" id="btn-yes" onclick="yes()">
-            yes ;)
+                                span.addEventListener('click', () => {
+                                    const isActive = skillState.get(skill);
+                                    skillState.set(skill, !isActive);
+                                    span.classList.toggle('active', !isActive);
+                                    span.classList.toggle('inactive', isActive);
 
-        </button>
-        
-        <button type="button" class="btn btn-danger" id="btn-no" onclick="no()">
-            no >:(
-        </button>
+                                    filter_projects();
+                                });
 
-        <div id = 'hide'>
-            <h1>
-                plan for feb 14
-            </h1>
-            <table id="schedule">
-                <tr>
-                    <th>time</th>
-                    <th>activity</th>
-                </tr>
-                <tr>
-                    <td>6:00 - 9:00</td>
-                    <td>travel to dasma</td>
-                </tr>
-                <tr>
-                    <td>9:00 - 10:00</td>
-                    <td>eat/take-out yellowcab</td>
-                </tr>
-                <tr>
-                    <td>10:00 - 10:30</td>
-                    <td>star gazing/outside tambay</td>
-                </tr>
-                <tr>
-                    <td>10:30 - 12:00</td>
-                    <td>dance sa dorm to this <a href="https://music.youtube.com/browse/VLPLaoein93Kv0soCFMT5Ed9TtmWXvzcmlH9">playlist</a></td>
-                </tr>
-            </table>
+                                document.querySelector('.skills.d-flex.flex-wrap').appendChild(span);
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+
+            <!-- Main content -->
+            <div class="container col-12 col-md-9 order-1 p-4">
+            <section>
+                <h5 class="fw-bold mb-3">Projects</h5>
+                <div class="row g-4" id="projects-container"></div>
+
+                <script>
+                const container = document.getElementById('projects-container');
+                container.innerHTML = '';
+                fetch(`projects.json?v=${Date.now()}`)
+                    .then(res => res.json())
+                    .then(projects => {
+                    const container = document.getElementById('projects-container');
+
+                    projects.forEach(project => {
+                        const col = document.createElement('div');
+                        col.className = 'col-md-4';
+
+                        const card = document.createElement('div');
+                        card.className = 'card project-card h-100';
+
+                        const cardBody = document.createElement('div');
+                        cardBody.className = 'card-body';
+
+                        const title = document.createElement('h6');
+                        title.className = 'card-title mb-1';
+                        title.textContent = project.title;
+
+                        const tagsDiv = document.createElement('div');
+                        tagsDiv.className = 'mb-2';
+                        project.tags.forEach(tag => {
+                        const span = document.createElement('span');
+                        span.className = 'work-tag';
+                        span.textContent = tag;
+                        tagsDiv.appendChild(span);
+                        });
+
+                        const description = document.createElement('p');
+                        description.className = 'card-text small';
+                        description.textContent = project.description;
+
+                        const link = document.createElement('a');
+                        link.href = project.link;
+                        link.className = 'small text-decoration-none';
+                        link.textContent = 'Read more →';
+
+                        cardBody.appendChild(title);
+                        cardBody.appendChild(tagsDiv);
+                        cardBody.appendChild(description);
+                        cardBody.appendChild(link);
+
+                        card.appendChild(cardBody);
+
+                        col.appendChild(card);
+                        container.appendChild(col);
+                    });
+                    });
+
+                function filter_projects() {
+                    const activeSkills = Array.from(skillState.entries())
+                    .filter(([skill, isActive]) => isActive)
+                    .map(([skill]) => skill);
+
+                    const projectCards = document.querySelectorAll('.project-card');
+                    projectCards.forEach(card => {
+                    
+                        const tags = Array.from(card.querySelectorAll('.work-tag')).map(tag => tag.textContent);
+
+                        const hasActiveSkill = activeSkills.some(skill => tags.includes(skill));
+                        const parentCol = card.closest('.col-md-4');
+                        
+                        if (parentCol) {
+                            parentCol.style.display = hasActiveSkill ? 'block' : 'none';
+                        }
+
+                        // console.log(tags, activeSkills, hasActiveSkill, parentCol.style.display);
+                    });
+                }
+                </script>
+            </section>
+
+            <section class="mt-5">
+                <h5 class="fw-bold mb-3">Education</h5>
+                <p class="mb-0 small text-muted">2021-2025</p>
+                <h6 class="fw-bold mb-1">BS Computer Engineering, University of the Philippines - Diliman</h6>
+                <p class="mb-0 small text-muted">Current GPA: 1.4283 (Magna Cum Laude)</p>
+                <p class="small">
+                    Relevant Coursework: Deep Learning Course. Information Theory. Competitive Programming Club. Computing
+                    Platforms and Optimization. Distributed Systems. Communication Systems and Networks. Computer Architecture
+                    and Organization. Advanced Computer Architecture Microcontrollers and Embedded Systems.
+                </p>
+            </section>
+
+            <section class="mt-5">
+                <h5 class="fw-bold mb-3">Experience</h5>
+                <div>
+                <p class="mb-0 small text-muted">September 2023 – August 2024</p>
+                <h6 class="fw-bold mb-1">Secretary at UP Algorithm Plus-plus</h6>
+                <p class="small">
+                    Collaborating with the executive committee to organize events and workshops. 
+                    Assisting in managing the club's online presence and communication channels.
+                    Held multiple internal competitions to foster a competitive environment and improve problem-solving skills.
+                </p>
+                <div class="d-flex flex-wrap mb-4">
+                    <span class="work-tag">C++</span>
+                    <span class="work-tag">Python</span>
+                    <span class="work-tag">Google Sheets</span>
+                    <span class="work-tag">Blender</span>
+                    <span class="work-tag">GIMP</span>
+                </div>
+                </div>
+            </section>
+
+            </div>
         </div>
+    </div>
 
-        <script>
-            var no_ctr = 0;
-            
-            function conf(){
-                const defaults = {
-                    spread: 360,
-                    ticks: 100,
-                    gravity: 0,
-                    decay: 0.94,
-                    startVelocity: 30,
-                    shapes: ["heart"],
-                    colors: ["FFC0CB", "FF69B4", "FF1493", "C71585"],
-                    };
-
-                    confetti({
-                    ...defaults,
-                    particleCount: 100,
-                    scalar: 2,
-                    });
-
-                    confetti({
-                    ...defaults,
-                    particleCount: 100,
-                    scalar: 3,
-                    origin: { y: 1.2 },
-                    });
-
-                    confetti({
-                    ...defaults,
-                    particleCount: 100,
-                    scalar: 4,
-                    });
-                }
-
-            function yes(){
-                conf();
-                var gif = document.getElementById('gif');
-                gif.height = "0px";
-
-                var text = document.getElementById('main-text');
-                text.innerHTML = "yeyyy!! I love youu!!";
-
-                var yes = document.getElementById('btn-yes');
-                var no = document.getElementById('btn-no');
-                yes.style.display = "none";
-                no.style.display = "none";
-
-                document.getElementById("hide").style.display = "block";
-            }
-
-            function no(){
-                var yes = document.getElementById('btn-yes')
-                
-                yes.style.width = yes.offsetWidth * 1.5 + "px";
-                yes.style.height = yes.offsetHeight * 1.5 + "px";
-
-                var text = document.getElementById('main-text');
-                var gif = document.getElementById('gif');
-                if(no_ctr==0){
-                    text.innerHTML = "U WILL BE MY VALENTINE >:((";
-                    gif.src = "https://giphy.com/embed/2ObMRv4QwO5XO";
-                }
-                else if(no_ctr==1){
-                    text.innerHTML = "sino kabit mo?? :((";
-                    gif.src = "https://giphy.com/embed/U3DK5KWnjMKNq";
-                }
-                else if(no_ctr==2){
-                    text.innerHTML = "wala kang choice mwahahaha";
-                    var no = document.getElementById('btn-no');
-                    no.style.display = "none";
-                    gif.src = "https://giphy.com/embed/tDJfaLVF0gHV90lxZj";
-                }
-                no_ctr++;
-
-                // there will be three cycles
-                // 1st no, increase yes button and change text+gif
-                // 2nd no, sino kabit mo :<<
-                // 3rd no, remove the no button
-            }
-        </script>
-        
-    </body>
-
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</body>
 </html>

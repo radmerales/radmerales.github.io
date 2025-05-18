@@ -1,18 +1,3 @@
-### Plan
-- Yes or No website, progressively harder to say no
-- Add gifs above
-- Add stuff that she likes
-    - sabrina carp??
-    - jolibee
-    - her pics 
-- Place out the plan after she clicked yes
-    - feb 14
-    - yellow cab
-    - stargaze sa 4th floor + music trip
-    - dance sa dorm with this special playlist
-        - howls moving castle merry go round of life
-        - nothing
-        - bibingka
-        - the only exception
-        - ikaw at ako
-        - the most beautiful thing
+# Portfolio Website
+
+Just a simple portfolio website. The main idea is like a interactable resume. You can also filter out projects. Thinking of doing a machine learning pipeline where we extract links from github and places them in the card with summaries and the skills used. 

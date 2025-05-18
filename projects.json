@@ -1,0 +1,16 @@
+[
+    {
+        "title": "Portfolio Website",
+        "image": "https://via.placeholder.com/600x300",
+        "tags": ["HTML", "CSS", "JavaScript"],
+        "description": "A personal portfolio website to showcase projects, skills, and contact information.",
+        "link": "#"
+    },
+    {
+        "title": "Rust MNIST",
+        "image": "https://via.placeholder.com/600x300",
+        "tags": ["Rust", "Machine Learning"],
+        "description": "A Rust implementation of the MNIST digit recognition task. Implemented basic machine learning modules in Rust and imported weights from a pretrained model.",
+        "link": "https://github.com/radmerales/rust-mnist-cnn"
+    }
+]

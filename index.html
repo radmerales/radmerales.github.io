@@ -1,226 +1,546 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rad Merales - Portfolio</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background-color: white;
+    }
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 10%;
+      object-fit: cover;
+    }
+    .card {
+      border-radius: 12px;
+      border: solid #e5e5e5 0.1em;
+      transition: 0.1s;
+    }
+    .card:hover{
+      box-shadow: #f5f5f5 0px 0px 3px 3px;
+    }
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
-    <title>Rad Merales Portfolio</title>
 
+    .section-title {
+      font-weight: 600;
+      color: #262626;
+    }
+    .section-title i{
+      color: #000000;
+      font-size: 13px;
+    }
+
+    body{
+      max-width: 900px;
+      margin: auto;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.9em;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+
+    .experience{
+      float:none;
+    }
+    .experience-title{
+      font-weight: 600;
+      line-height: 0.95em;
+    }
+    .experience-detail{
+      color: #4e4e4e;
+    }
+    .experience-time{
+      border-radius: 1em;
+      font-size: 1em;
+      padding: 0.1em  0.3em  0.1em 0.3em;
+      color: #4e4e4e;
+      border: solid rgb(181, 181, 181) 1px;
+      font-family: monospace;
+    }
+
+    .socials-card{
+      font-size: 1em;
+      height:2.2em;
+      padding: 0.3em 0.8em;
+      border-radius: 0.3em;
+      border: #e2e2e2 solid 0.1em;
+      transition: 0.1s;
+    }
+
+    .socials-card:hover{
+      cursor: pointer;
+      color: white;
+      background-color: black;
+    }
+
+    .socials-card p{
+      float: left; 
+    }
+
+    .skill-block{
+      border-radius: 0.4em;
+      font-size: 1.1em;
+      border: solid #b9b9b9 0.1em;
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+      padding-bottom: 0em;
+      font-family: monospace;
+      width: fit-content;
+      background-color: rgb(245, 245, 245);
+    }
+
+
+
+    .project-card{
+      font-size: 0.9em;
+      transition: 0.2s;
+    }
+    .project-card .card-title{
+      font-weight: 600;
+      font-family: monospace;
+    }
+
+    code{
+      padding-left:0.3em;
+      padding-right:0.3em;
+      border-radius: 1em;
+      background-color: #eeeeee;
+    }
+
+  </style>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row flex-md-nowrap">
-            <!-- Sidebar -->
-            <div class="sidebar col-12 col-md-3 order-0 px-3 border-end">
-                <div class = "container-fluid px-0">
-                    <div class="d-flex px-0 py-0">
-                        <div class="order-0 align-items-center" style="padding-right: 0.5em;">
-                            <img src="Picture.jpg" alt="Gerarld Merales" class="profile-img mb-0" >
-                            <!-- Social links -->
-                            <div class="d-flex flex-row gap-2 mb-3" style="font-size: 1.5em;">
-                                <a href="https://www.linkedin.com/in/rad-merales/" class="text-dark"><i class="bi bi-linkedin"></i></a>
-                                <a href="https://github.com/radmerales/" class="text-dark"><i class="bi bi-github"></i></a>
-                                <a href="mailto:gpmerales@gmail.com" class="text-dark"><i class="bi bi-envelope-arrow-up-fill"></i></a>
-                            </div>
-                        </div>
-                        <div class="flex-grow order-1 ml-1">
-                            <h5 class="fw-bold">Rad Merales</h5>
-                            <p class="text-muted mb-1">BS Computer Engineering Student at UPD</p>
-                            <p class="text-muted small">Based in Quezon City</p>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- About -->
-                <h6 class="fw-bold mt-4">About</h6>
-                <p class="small">
-                    I am passionate about systems programming and networks, with a strong interest in embedded systems. Currently exploring opportunities in machine learning to bridge low-level hardware and high-level intelligent systems.
-                </p>
+<div class="container py-5 px-10">
+  <!-- Profile Header -->
+  <div class="row mb-4">
+    <div class="col-md-3 text-center">
+      <img src="Picture.jpg" alt="Profile" class="profile-img mb-3">
+    </div>
+    <div class="col-md-9">
+      <h2 class="mb-0">Rad Merales
+      <img src="icons/verified.svg" alt="My Icon" width="25" height="25">
+      </h2>
+      <p class="text-muted mb-1">Quezon City, Philippines</p>
+      <h5> Software and Hardware Engineer</h5>
+      <div class="mt-3">
+        <a href="Rad_Merales_CV.pdf" download>
+          <button class="btn btn-dark btn-sm"> <i class="fa-solid fa-file-arrow-down"></i> Get Resume</button>
+        </a>
+        <button class="btn btn-outline-dark btn-sm" onclick="copyEmail()"> <i class="fa-regular fa-envelope"></i> <span id="email_copied">Copy Email</span></button>
+        <script>
+          function copyEmail() {
+            const email = "gpmerales@gmail.com"; // your email
+            navigator.clipboard.writeText(email).then(() => {
+              btn = document.getElementById("email_copied");
+              btn.innerHTML = "Copied to clipboard!";
+            }).catch(err => {
+              console.error("Failed to copy: ", err);
+            });
+          }
+        </script>
+      </div>
+    </div>
+  </div>
 
-                <!-- Skills -->
-                <h6 class="fw-bold mt-3">Skills</h6>
-                <div class="skills d-flex flex-wrap">
-                    <script>
-
-                    var skills = [];
-                    const skillState = new Map();
-
-                    fetch(`projects.json?v=${Date.now()}`)
-                        .then(res => res.json())
-                        .then(projects => {
-                            projects.forEach(project => {
-                                project.tags.forEach(tag => {
-                                    if (!skills.includes(tag)) {
-                                        skills.push(tag);
-                                    }
-                                });
-                                console.log(project.title);
-                            });
-                            skills.forEach(skill => {
-                                skillState.set(skill, true);
-
-                                const span = document.createElement('span');
-                                span.className = 'tag active';
-                                span.textContent = skill;
-
-                                span.addEventListener('click', () => {
-                                    const isActive = skillState.get(skill);
-                                    skillState.set(skill, !isActive);
-                                    span.classList.toggle('active', !isActive);
-                                    span.classList.toggle('inactive', isActive);
-
-                                    filter_projects();
-                                });
-
-                                document.querySelector('.skills.d-flex.flex-wrap').appendChild(span);
-                            });
-                        });
-                    </script>
-                </div>
-            </div>
-
-            <!-- Main content -->
-            <div class="container col-12 col-md-9 order-1 p-4">
-            <section>
-                <h5 class="fw-bold mb-3">Projects</h5>
-                <div class="row g-4" id="projects-container"></div>
-
-                <script>
-                const container = document.getElementById('projects-container');
-                container.innerHTML = '';
-                fetch(`projects.json?v=${Date.now()}`)
-                    .then(res => res.json())
-                    .then(projects => {
-                    const container = document.getElementById('projects-container');
-
-                    projects.forEach(project => {
-                        const col = document.createElement('div');
-                        col.className = 'col-md-4';
-
-                        const card = document.createElement('div');
-                        card.className = 'card project-card h-100';
-
-                        const cardBody = document.createElement('div');
-                        cardBody.className = 'card-body';
-
-                        const title = document.createElement('h6');
-                        title.className = 'card-title mb-1';
-                        title.textContent = project.title;
-
-                        const tagsDiv = document.createElement('div');
-                        tagsDiv.className = 'mb-2';
-                        project.tags.forEach(tag => {
-                        const span = document.createElement('span');
-                        span.className = 'work-tag';
-                        span.textContent = tag;
-                        tagsDiv.appendChild(span);
-                        });
-
-                        const description = document.createElement('p');
-                        description.className = 'card-text small';
-                        description.textContent = project.description;
-
-                        const link = document.createElement('a');
-                        link.href = project.link;
-                        link.className = 'small text-decoration-none';
-                        link.textContent = 'Read more →';
-
-                        cardBody.appendChild(title);
-                        cardBody.appendChild(tagsDiv);
-                        cardBody.appendChild(description);
-                        cardBody.appendChild(link);
-
-                        card.appendChild(cardBody);
-
-                        col.appendChild(card);
-                        container.appendChild(col);
-                    });
-                    });
-
-                function filter_projects() {
-                    const activeSkills = Array.from(skillState.entries())
-                    .filter(([skill, isActive]) => isActive)
-                    .map(([skill]) => skill);
-
-                    const projectCards = document.querySelectorAll('.project-card');
-                    projectCards.forEach(card => {
-                    
-                        const tags = Array.from(card.querySelectorAll('.work-tag')).map(tag => tag.textContent);
-
-                        const hasActiveSkill = activeSkills.some(skill => tags.includes(skill));
-                        const parentCol = card.closest('.col-md-4');
-                        
-                        if (parentCol) {
-                            parentCol.style.display = hasActiveSkill ? 'block' : 'none';
-                        }
-
-                        // console.log(tags, activeSkills, hasActiveSkill, parentCol.style.display);
-                    });
-                }
-                </script>
-            </section>
-
-            <section class="mt-5">
-                <h5 class="fw-bold mb-3">Education</h5>
-                <p class="mb-0 small text-muted">2021-2025</p>
-                <h6 class="fw-bold mb-1">BS Computer Engineering, University of the Philippines - Diliman</h6>
-                <p class="mb-0 small text-muted">GPA: 1.4483 (Magna Cum Laude)</p>
-                <p class="small">
-                    Relevant Coursework: Deep Learning Course. Information Theory. Competitive Programming Club. Computing
-                    Platforms and Optimization. Distributed Systems. Communication Systems and Networks. Computer Architecture
-                    and Organization. Advanced Computer Architecture Microcontrollers and Embedded Systems.
-                </p>
-            </section>
-
-            <section class="mt-5">
-                <h5 class="fw-bold mb-3">Experience</h5>
-                
-                <div>
-                    <p class="mb-0 small text-muted">July 2025 – October 2025</p>
-                    <h6 class="fw-bold mb-1">AI Engineer Intern at Stratpoint</h6>
-                    <p class="small">
-                        Developed and deployed machine learning models for various applications, including natural language processing and computer vision.
-                        Collaborated with cross-functional teams to integrate AI solutions into existing systems.
-                    </p>
-                    <div class="d-flex flex-wrap mb-4">
-                        <span class="work-tag">Python</span>
-                        <span class="work-tag">Langflow</span>
-                        <span class="work-tag">Gradio</span>
-                        <span class="work-tag">Docker</span>
-                    </div>
-                </div>
-                
-                <div>
-                    <p class="mb-0 small text-muted">September 2023 – August 2024</p>
-                    <h6 class="fw-bold mb-1">Secretary at UP Algorithm Plus-plus</h6>
-                    <p class="small">
-                        Collaborating with the executive committee to organize events and workshops. 
-                        Assisting in managing the club's online presence and communication channels.
-                        Held multiple internal competitions to foster a competitive environment and improve problem-solving skills.
-                    </p>
-                    <div class="d-flex flex-wrap mb-4">
-                        <span class="work-tag">C++</span>
-                        <span class="work-tag">Python</span>
-                        <span class="work-tag">Google Sheets</span>
-                        <span class="work-tag">Blender</span>
-                        <span class="work-tag">GIMP</span>
-                    </div>
-                </div>
-
-            </section>
-
-            </div>
+  <div class="container">
+    <div class="row mb-2 g-2 d-flex align-items-stretch">
+      <div class="col-md-8">
+        <div class="card p-4 h-100">
+          <h6 class="section-title d-flex align-items-start"><i class="fa-regular fa-chess-king pe-2" style="padding-top: 0.1em;"></i>About</h6>
+          <p>
+            I’m a Computer Engineering graduate with a strong foundation in <code>software development</code> and <code>competitive programming</code>. As part of a programming team, I’ve specialized in advanced data structures, algorithms, debugging, and graphs—skills that help me tackle complex technical challenges efficiently.
+          </p>
+          <p>
+            I’m also interested in AI applications in embedded systems, robotics, and infrastructure, and enjoy building practical electronics and programming projects. 
+          </p>
+          <p>
+            Looking ahead, I aspire to work on opportunities that combine my technical expertise with impactful real-world applications, while also sharing knowledge through content creation to inspire others in programming and engineering.
+          </p>
         </div>
+      </div>
+      <div class="col-md-4 d-flex flex-column gap-2">
+        <div class="card p-4 h-100">
+          <h5 class="section-title d-flex align-items-center"> <i class="fa-regular fa-chess-bishop pe-2"></i>Skills</h5>
+          <div class="container">
+            <div class="row">
+              <p style="font-weight: 600;" class="p-0 mb-0">Languages</p>
+            </div>
+            <div id="languages-container" class="row"></div>
+
+            <div class="row">
+              <p style="font-weight: 600;" class="p-0 mb-0 mt-2">Platforms</p>
+            </div>
+            <div id="platforms-container" class="row"></div>
+
+            <div class="row">
+              <p style="font-weight: 600;" class="p-0 mb-0 mt-2">Miscs</p>
+            </div>
+            <div id="miscs-container" class="row"></div>
+              <script>
+                const languages = [
+                  "Python",
+                  "SQL",
+                  "Verilog",
+                  "C++",
+                  "Javascript",
+                  "Rust",
+                ]
+
+                const platforms = [
+                  "Git",
+                  "Linux",
+                  "GitHub",
+                  "STM32",
+                  "Arduino",
+                  "Raspberry Pi",
+                  "Docker",
+                  "VMWare", "VirtualBox"
+                ]
+
+                const miscs = [
+                  "Pytorch",
+                  "Numpy",
+                  "Pandas",
+                  "Tensorflow",
+                  "ChromaDB",
+                  "LangChain",
+                  "Blender", "3D Modeling"
+                ]
+
+                // Container
+                const container = document.getElementById("languages-container");
+                // Generate skill blocks
+                languages.forEach(lang => {
+                  const div = document.createElement("div");
+                  div.className = "skill-block col-auto me-1 mb-1";
+                  div.textContent = lang;
+                  container.appendChild(div);
+                });
+
+
+                // Container
+                const platform_container = document.getElementById("platforms-container");
+                // Generate skill blocks
+                platforms.forEach(plat => {
+                  const div = document.createElement("div");
+                  div.className = "skill-block col-auto me-1 mb-1";
+                  div.textContent = plat;
+                  platform_container.appendChild(div);
+                });
+
+
+                // Container
+                const miscs_container = document.getElementById("miscs-container");
+                // Generate skill blocks
+                miscs.forEach(misc => {
+                  const div = document.createElement("div");
+                  div.className = "skill-block col-auto me-1 mb-1";
+                  div.textContent = misc;
+                  miscs_container.appendChild(div);
+                });
+              </script>
+          </div>
+        </div>
+      </div>
+  
+  </div>
+
+
+    <div class="row gx-2 d-flex align-items-stretch">
+      <div class="col-md-4 mb-2">
+        <div class="card p-4 flex-grow-1 mb-2">
+          <h5 class="section-title d-flex align-items-center">
+            <i class="fa-regular fa-chess-queen pe-2"></i> Experience
+          </h5>
+          <ul class="list-unstyled">
+            <li>
+              <div class="experience-card mb-2">
+                <div class="experience-title">AI Engineering Intern</div>
+                <div class="d-flex justify-content-between">
+                  <div class="experience-detail">Stratpoint</div>
+                  <div class="experience-time">2025</div>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="experience-card mb-2">
+                <div class="experience-title">BS Computer Engg</div>
+                <div class="d-flex justify-content-between">
+                  <div class="experience-detail">UP - Diliman</div>
+                  <div class="experience-time">2025</div>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="experience-card mb-2">
+                <div class="experience-title">Org Secretary</div>
+                <div class="d-flex justify-content-between">
+                  <div class="experience-detail">UP Algo++</div>
+                  <div class="experience-time">2023</div>
+                </div>
+              </div>
+            </li>
+
+
+            <li>
+              <div class="experience-card">
+                <div class="experience-title">COMET Intern</div>
+                <div class="d-flex justify-content-between">
+                  <div class="experience-detail">DLSU</div>
+                  <div class="experience-time">2019</div>
+                </div>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <!-- Socials -->
+        <div class="card p-4 flex-grow-1">
+          <h5 class="section-title d-flex align-items-center">
+            <i class="fa-regular fa-chess-pawn pe-2"></i> Socials
+          </h5>
+
+          <div class="socials-card mb-1" onclick="window.location.href='https://github.com/radmerales/';">
+            <i class="fa-brands fa-github float-start" style="font-size: 22px; width: 25px;"></i>
+            <p class="ps-2">radmerales</p>
+          </div>
+
+          <div class="socials-card mb-1" onclick="window.location.href='https://www.linkedin.com/in/rad-merales/';">
+            <i class="fa-brands fa-linkedin float-start" style="font-size: 23px; width: 25px;"></i>
+            <p class="ps-2">rad-merales</p>
+          </div>
+
+          <div class="socials-card" onclick="window.location.href='mailto:gpmerales@gmail.com';">
+            <i class="fa-solid fa-envelope float-start" style="font-size: 22px; width: 25px;"></i>
+            <p class="ps-2">gpmerales@gmail.com</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-8 mb-2">
+        <div class="card p-4 h-100">          
+          <h5 class="section-title d-flex align-items-center"> <i class="fa-regular fa-chess-knight pe-2"></i>Recent Projects</h5>
+          
+          <div class="container mt-2 p-0">
+            <div class="row g-2 recent-projects-container">
+
+              <script>
+                const projects = [
+                  {
+                  title: "Sari AI Environment",
+                  skills: ["AI Agents", "C#", "Python", "ICCV Retail Paper"],
+                  description: "A 3D Environment for Embodied AI Agents with Virtual Reality.",
+                  link: "https://arxiv.org/abs/2508.00400"
+                  },
+                  {
+                  title: "Rust Flac Converter",
+                  skills: ["Rust", "Embedded Systems"],
+                  description: "Implemented a wav to flac converter in Rust.",
+                  link: "radmerales.github.io"
+                  },
+                  {
+                  title: "Rust CNN Implementation",
+                  skills: ["Rust", "Machine Learning"],
+                  description: "A pure rust implementation of a CNN for the MNIST Dataset.",
+                  link: "https://github.com/radmerales/rust-mnist-cnn"
+                  },
+                  {
+                  title: "STM32 Fire Alarm System",
+                  skills: ["C", "STM32", "Electronics"],
+                  description: "Developed a Fire Alarm System with an STM32 in C.",
+                  link: "radmerales.github.io"
+                  }
+                ];
+
+                const projectsContainer = document.querySelector(".row.g-2.recent-projects-container");
+
+                projects.forEach(project => {
+                  const colDiv = document.createElement("div");
+                  colDiv.className = "col-12 col-sm-12 col-lg-6";
+
+                  const cardDiv = document.createElement("div");
+                  cardDiv.className = "card h-100 d-flex p-3 project-card";
+                  cardDiv.style.cursor = "pointer";
+                  cardDiv.onclick = () => window.location.href = project.link;
+
+                  const cardBodyDiv = document.createElement("div");
+                  cardBodyDiv.className = "card-body p-0";
+
+                  const title = document.createElement("h5");
+                  title.className = "card-title";
+                  title.textContent = project.title;
+
+                  const skillsRow = document.createElement("div");
+                  skillsRow.className = "row m-0";
+
+                  project.skills.forEach(skill => {
+                  const skillDiv = document.createElement("div");
+                  skillDiv.className = "skill-block col-auto me-1 mb-1";
+                  skillDiv.textContent = skill;
+                  skillsRow.appendChild(skillDiv);
+                  });
+
+                  const description = document.createElement("p");
+                  description.className = "card-text";
+                  description.textContent = project.description;
+
+                  cardBodyDiv.appendChild(title);
+                  cardBodyDiv.appendChild(skillsRow);
+                  cardBodyDiv.appendChild(description);
+
+                  cardDiv.appendChild(cardBodyDiv);
+                  colDiv.appendChild(cardDiv);
+
+                  projectsContainer.appendChild(colDiv);
+                });
+              </script>
+
+
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <div class="row gx-2 d-flex align-items-stretch">
+
+  <div class="col-md-6 mb-2">
+    <div class="card p-4 h-100">
+      <h5 class="section-title d-flex align-items-center"> <i class="fa-regular fa-chess-rook pe-2"></i>Certs & Courses</h5>
+      
+      <div class="list-group-flush">
+        <style>
+          .certs{
+            background-color: #f7f9fa;
+          }
+          .certs:hover{
+            cursor: pointer;
+            background-color: #e9e9e9;
+          }
+        </style>
+        <div class="certs rounded-3 mt-1 mb-2 border-0 p-2" onclick="window.location.href='https://www.datacamp.com/completed/statement-of-accomplishment/course/c3094cf3740c760d0ab1c1e56406ad21fa6e8ea3';">
+          <div class="fw-semibold m-0">Intermediate SQL</div>
+          <small class="text-muted m-0">Datacamp</small>
+        </div>
+
+                <div class="certs rounded-3 mt-1 mb-2 border-0 p-2" onclick="window.location.href='https://www.datacamp.com/completed/statement-of-accomplishment/course/c3094cf3740c760d0ab1c1e56406ad21fa6e8ea3';">
+          <div class="fw-semibold m-0">BS Computer Engineering</div>
+          <small class="text-muted m-0">University of the Philippines - Diliman</small>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="col-md-4 mb-2">
+    <div class="card p-4 h-100">
+      <h5 class="section-title d-flex align-items-center"> <i class="fa-solid fa-headphones pe-2"></i> Hobbies</h5>
+      When I'm not coding I like doing YouTube. I sometimes create random electronics projects. I also like music, different genres. I also do 3D modeling.
+    </div>
+  </div> -->
+  <div class="col-md-6 mb-2">
+    <div class="card p-4 h-100">
+      <h5 class="section-title d-flex align-items-center"> <i class="fa-regular fa-circle-dot pe-2" style="color:red;" id="cf-active-status"></i>Codeforces Tracker </h5> 
+      <div id="cf-info" class="w-100">
+        <p class="mb-1"> 
+          <span id="cf-user" class="fw-semibold">Loading user...</span>
+        </p>
+        <ul id="cf-problems-list" class="list-unstyled w-100 m-0"></ul>
+      </div>
+      <script>
+        async function getLastSolvedInfo(username, n) {
+          try {
+            // 1. Get rating
+            const ratingRes = await fetch(`https://codeforces.com/api/user.info?handles=${username}`);
+            const ratingData = await ratingRes.json();
+            const rating = ratingData.result[0].rating || "Unrated";
+
+            // 2. Get last submissions
+            const subRes = await fetch(`https://codeforces.com/api/user.status?handle=${username}&from=1&count=100`);
+            const subData = await subRes.json();
+
+            // Find last n accepted problems
+            const solvedProblems = subData.result.filter(sub => sub.verdict === "OK").slice(0, n);
+            if (solvedProblems.length === 0) {
+              document.getElementById("cf-info").innerHTML = "<p class='text-danger'>No solved problems found.</p>";
+              return;
+            }
+
+            // Place values in UI
+            document.getElementById("cf-user").textContent = username + " (" + rating + ")";
+            const problemsList = document.getElementById("cf-problems-list");
+            problemsList.innerHTML = ""; // Clear previous entries
+
+            solvedProblems.forEach(problem => {
+              const listItem = document.createElement("li");
+              
+              const contentDiv = document.createElement("div");
+              contentDiv.className = "d-flex justify-content-between"; // Flex container for alignment
+
+              const problemLink = document.createElement("a");
+              problemLink.href = `https://codeforces.com/contest/${problem.problem.contestId}/problem/${problem.problem.index}`;
+              problemLink.target = "_blank";
+              problemLink.className = "link-primary ps-2";
+              problemLink.textContent = problem.problem.name;
+
+              const problemDate = document.createElement("span");
+              problemDate.className = "text-muted";
+              problemDate.textContent = new Date(problem.creationTimeSeconds * 1000).toLocaleString().split(',')[0];
+
+              contentDiv.appendChild(problemLink);
+              contentDiv.appendChild(problemDate);
+              listItem.appendChild(contentDiv);
+              problemsList.appendChild(listItem);
+            });
+
+            document.getElementById("cf-active-status").style.color = "green";
+          } catch (err) {
+            console.error(err);
+            document.getElementById("cf-info").innerHTML = "<p class='text-danger'>Error loading data.</p>";
+            document.getElementById("cf-active-status").style.color = "red";
+          }
+        }
+
+        // Example usage:
+        getLastSolvedInfo("radmerales", 5); // Fetch the 5 most recent solved problems
+      </script>
+    </div>
+  </div>
+
+</div>
+    
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
+<style>
+  footer{
+    text-align: center;
+    border-top: solid rgb(220, 220, 220) 0.1em;
+  }
+
+
+</style>
+<footer class="pt-3 mt-3">
+  © 2025 Rad Merales. All rights reserved.
+</footer>
 </html>

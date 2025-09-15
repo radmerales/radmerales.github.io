@@ -12,5 +12,12 @@
         "tags": ["Rust", "Machine Learning"],
         "description": "A Rust implementation of the MNIST digit recognition task. Implemented basic machine learning modules in Rust and imported weights from a pretrained model.",
         "link": "https://github.com/radmerales/rust-mnist-cnn"
+    }, 
+    {
+        "title": "Sari: A 3D Convenience Store Synthetic Environment for Agent Learning",
+        "image": "https://via.placeholder.com/600x300",
+        "tags": ["C#", "Blender", "Unity", "Machine Learning", "AI Agents"],
+        "description": "A 3D synthetic environment designed for training AI agents. Developed using Unity and Blender, it provides a realistic setting for agent learning experiments in the scene of retail environments.",
+        "link": "#"
     }
 ]
